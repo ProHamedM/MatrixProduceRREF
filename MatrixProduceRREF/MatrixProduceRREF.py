@@ -1,5 +1,7 @@
+
 # Ask client path & sheet
-input ('Please enter excel File\'s Path & Sheet?')
+path = input ('Please enter excel File\'s Path & Sheet?')
+print (path)
 
 def produceMatrix ():
     return
