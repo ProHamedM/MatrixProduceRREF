@@ -1,4 +1,5 @@
-from distutils.command.install import install
+# Ask client path & sheet
+input ('Please enter excel File\'s Path & Sheet?')
 
-
-pip install pandas
+def produceMatrix ():
+    return
