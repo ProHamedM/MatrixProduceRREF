@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 # Ask client path
@@ -6,6 +7,10 @@
 
 from pandas import pd
 
+=======
+# Ask client path & sheet
+input ('Please enter excel File\'s Path & Sheet?')
+>>>>>>> parent of e371aab (the app successfully recieves file's path)
 
 def produceMatrix ():
     mydataset = {
