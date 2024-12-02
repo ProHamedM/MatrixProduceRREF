@@ -1,34 +1,23 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
+import pandas as pd
 
 # Ask client path
-#path = input ('Please enter excel File\'s Path?')
-#print (path)
+path = input ('Please enter excel File\'s Path & Sheet?').strip() #Remove extra spaces
+# Convert path to string
+path = str(path)
+print(path)
 
-from pandas import pd
+def produce_matrix ():
+    try:
+        # Read matrix from Excel file
+        doc_matrix = pd.read_excel(path)
 
-=======
-# Ask client path & sheet
-input ('Please enter excel File\'s Path & Sheet?')
->>>>>>> parent of e371aab (the app successfully recieves file's path)
-=======
-# Ask client path & sheet
-input ('Please enter excel File\'s Path & Sheet?')
->>>>>>> parent of e371aab (the app successfully recieves file's path)
+        # Check if DataFrame is empty
+        if doc_matrix.empty:
+            print('The file is empty. :)')
+        else:
+            print(doc_matrix.to_string())
+        # return
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-def produceMatrix ():
-    mydataset = {
-    'cars': ["BMW", "Volvo", "Ford"],
-    'passings': [3, 7, 2]}
-    myvar = pd.DataFrame(mydataset)
-    print(myvar)
-
-
-
-
-
-    #doc = pd.DataFrame(pd.read_excel(path))
-    
-
-  #print (doc)
+produce_matrix()
