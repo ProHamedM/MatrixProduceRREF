@@ -6,10 +6,16 @@ path = input ('Please enter excel File\'s Path & Sheet?').strip() #Remove extra 
 path = str(path)
 print(path)
 
+
+
 def produce_matrix ():
     try:
         # Read matrix from Excel file
-        doc_matrix = pd.read_excel(path)
+        doc_matrix = pd.read_excel(path)  # Exclude the first column
+
+        # Print column names to debug
+        print("Column names in the file:")
+        print(doc_matrix.index)
 
         # Check if DataFrame is empty
         if doc_matrix.empty:
