@@ -15,14 +15,20 @@ def produce_matrix ():
 
     try:
         # Read matrix from Excel file
-        doc_matrix = pd.read_excel(read_path)
+        doc_matrix = pd.read_excel(read_path, header=None) # Disable header assumption
 
         # Check if DataFrame is empty
         if doc_matrix.empty:
             print('The file is empty. :)')
         else:
-            print(doc_matrix.to_string())
-        # return
+            num_rows = doc_matrix.shape[0] # Number of rows
+            count = 0
+
+            for count in range(num_rows):  # Use `for` loop for cleaner iteration
+                # Access each row by position
+                row = doc_matrix.iloc[count]  # Access the row at index `count`
+                print(row.to_string(index=False))  # Print row without the index
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
