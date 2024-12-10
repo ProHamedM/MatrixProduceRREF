@@ -17,17 +17,25 @@ def produce_matrix ():
 
     try:
         # Read matrix from Excel file
-        doc_matrix = pd.read_excel(read_path, header=None) # Disable header assumption
-
-        # Step 1: Extract the first row
-        first_row  = doc_matrix.iloc[0, :]  # Using .iloc for positional indexing
-        # Step 2: Create a new matrix using the extracted row
-        temp_matrix = pd.DataFrame(first_row)
+        doc_matrix = pd.read_excel(read_path, header=None).astype(float) # Disable header assumption & Set values Float
 
         # Check if DataFrame is empty
         if doc_matrix.empty:
             print('The file is empty. :)')
         else:
+
+            # Extract the first row
+            temp_matrix = doc_matrix.iloc[0, :]  # Using .iloc for positional indexing
+            # Get the first value of the first row
+            temp_num = temp_matrix.iloc [0]
+            # Divide the first row by its first value
+            temp_matrix = temp_matrix / temp_num
+            # Update the DataFrame
+            doc_matrix.iloc[0, :] = temp_matrix
+            #Log
+            print(str(temp_matrix))
+
+
             num_rows = doc_matrix.shape[0] # Number of rows
 
             for count in range(num_rows):  # Use `for` loop for cleaner iteration
