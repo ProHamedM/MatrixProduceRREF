@@ -12,13 +12,16 @@ print(write_path)
 
 def produce_matrix ():
     global doc_matrix
+    global temp_matrix
 
     try:
         # Read matrix from Excel file
         doc_matrix = pd.read_excel(read_path, header=None) # Disable header assumption
 
-        # Get the number of columns
-        row_count = doc_matrix.shape[1]
+        # Step 1: Extract the first row
+        first_row  = doc_matrix.iloc[0, :]  # Using .iloc for positional indexing
+        # Step 2: Create a new matrix using the extracted row
+        temp_matrix = pd.DataFrame(first_row)
 
         # Check if DataFrame is empty
         if doc_matrix.empty:
