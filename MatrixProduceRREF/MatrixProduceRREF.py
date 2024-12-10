@@ -17,6 +17,9 @@ def produce_matrix ():
         # Read matrix from Excel file
         doc_matrix = pd.read_excel(read_path, header=None) # Disable header assumption
 
+        # Get the number of columns
+        row_count = doc_matrix.shape[1]
+
         # Check if DataFrame is empty
         if doc_matrix.empty:
             print('The file is empty. :)')
@@ -32,7 +35,7 @@ def produce_matrix ():
     except Exception as e:
         print(f"An error occurred: {e}")
 
-    # Save the DataFrame to Excel
-    doc_matrix.to_excel(write_path, index=False)
+    # Save the DataFrame to Excel (include Raw & Column index)
+    doc_matrix.to_excel(write_path, index=True)
 
 produce_matrix()
