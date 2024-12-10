@@ -13,6 +13,7 @@ print(write_path)
 def produce_matrix ():
     global doc_matrix
     global temp_matrix
+    global temp_num
 
     try:
         # Read matrix from Excel file
@@ -28,7 +29,6 @@ def produce_matrix ():
             print('The file is empty. :)')
         else:
             num_rows = doc_matrix.shape[0] # Number of rows
-            count = 0
 
             for count in range(num_rows):  # Use `for` loop for cleaner iteration
                 # Access each row by position
