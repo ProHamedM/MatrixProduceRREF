@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # Ask client paths
 read_path = input ('Please enter excel File\'s Path?').strip() # Remove extra spaces
@@ -26,37 +27,35 @@ def produce_matrix ():
 
             num_rows = doc_matrix.shape[0] # Number of rows
 
-            for count in range(num_rows):
+            # Loop through each pivot row
+            for pivot_row in range(num_rows):
 
-                # Extract the first row
-                temp_matrix = doc_matrix.iloc[count, :]  # Using .iloc for positional indexing
-                # Get the first value of the first row
-                temp_num = temp_matrix.iloc [count]
-                # Divide the first row by its first value
-                temp_matrix = temp_matrix / temp_num
-                # Update the DataFrame
-                doc_matrix.iloc[count, :] = temp_matrix
-
-
-
-
-                for inner_count in range(num_rows):  # Use `for` loop for cleaner iteration
-                    # Initial 1st row just as it is
-                    if inner_count <= count:  # Skip the pivot row itself
-                        row = doc_matrix.iloc[inner_count]  # Access the row at index `count`
+                # Ensure the pivot is non-zero. If zero, swap with a lower row.
+                if doc_matrix.iloc[pivot_row, pivot_row] == 0:
+                    for lower_row in range(pivot_row + 1, num_rows):
+                        if doc_matrix.iloc[lower_row, pivot_row] != 0:
+                            # Swap rows
+                            doc_matrix.iloc[[pivot_row, lower_row]] = doc_matrix.iloc[[lower_row, pivot_row]].values
+                            break
                     else:
-                       # Extract the row
-                        temp_matrix = doc_matrix.iloc[inner_count, :]  # Using .iloc for positional indexing
-                        # Get the first value of the row
-                        temp_num = doc_matrix.iloc[inner_count,count] # Access the value in the (num_row) row and first column
-                        # Multiply the row by its first value
-                        temp_matrix = temp_matrix * temp_num
+                        # If no non-zero pivot found, skip this column
+                        print(f"Column {pivot_row} has no valid pivot. Skipping...")
+                        continue
 
-                        print("log temp _ MAt : " + str (temp_matrix))
-                        # Subtract the row from the specific Row of the DataFrame
-                        doc_matrix.iloc[inner_count, :] = doc_matrix.iloc[count,:] - temp_matrix
+                # Normalize the pivot row
+                pivot_value = doc_matrix.iloc[pivot_row, pivot_row]
+                doc_matrix.iloc[pivot_row, :] /= pivot_value
 
-        print('log MAT total : ' + str(doc_matrix))  # Print row without the index
+                # Step 3: Eliminate all other entries in the pivot column
+                for target_row in range(num_rows):
+                    if target_row != pivot_row:  # Skip the pivot row itself
+                        multiplier = doc_matrix.iloc[target_row, pivot_row]
+                        doc_matrix.iloc[target_row, :] -= multiplier * doc_matrix.iloc[pivot_row, :]
+
+            # Log the resulting matrix
+            print("Final RREF Matrix:")
+            print(doc_matrix)
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
