@@ -42,19 +42,19 @@ def produce_matrix ():
 
                 for inner_count in range(num_rows):  # Use `for` loop for cleaner iteration
                     # Initial 1st row just as it is
-                    if inner_count == 0: # Access the row by position
+                    if inner_count <= count:  # Skip the pivot row itself
                         row = doc_matrix.iloc[inner_count]  # Access the row at index `count`
                     else:
                        # Extract the row
-                        temp_matrix = doc_matrix.iloc[0, :]  # Using .iloc for positional indexing
+                        temp_matrix = doc_matrix.iloc[inner_count, :]  # Using .iloc for positional indexing
                         # Get the first value of the row
-                        temp_num = doc_matrix.iloc[inner_count,0] # Access the value in the (num_row) row and first column
+                        temp_num = doc_matrix.iloc[inner_count,count] # Access the value in the (num_row) row and first column
                         # Multiply the row by its first value
                         temp_matrix = temp_matrix * temp_num
 
                         print("log temp _ MAt : " + str (temp_matrix))
                         # Subtract the row from the specific Row of the DataFrame
-                        doc_matrix.iloc[count, :] = doc_matrix.iloc[count,:] - temp_matrix
+                        doc_matrix.iloc[inner_count, :] = doc_matrix.iloc[count,:] - temp_matrix
 
         print('log MAT total : ' + str(doc_matrix))  # Print row without the index
     except Exception as e:
