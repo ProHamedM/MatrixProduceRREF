@@ -29,26 +29,26 @@ def produce_matrix ():
             for count in range(num_rows):
 
                 # Extract the first row
-                temp_matrix = doc_matrix.iloc[0, :]  # Using .iloc for positional indexing
+                temp_matrix = doc_matrix.iloc[count, :]  # Using .iloc for positional indexing
                 # Get the first value of the first row
-                temp_num = temp_matrix.iloc [0]
+                temp_num = temp_matrix.iloc [count]
                 # Divide the first row by its first value
                 temp_matrix = temp_matrix / temp_num
                 # Update the DataFrame
-                doc_matrix.iloc[0, :] = temp_matrix
+                doc_matrix.iloc[count, :] = temp_matrix
 
 
 
 
-                for count in range(num_rows):  # Use `for` loop for cleaner iteration
+                for inner_count in range(num_rows):  # Use `for` loop for cleaner iteration
                     # Initial 1st row just as it is
-                    if count == 0: # Access the row by position
-                        row = doc_matrix.iloc[count]  # Access the row at index `count`
+                    if inner_count == 0: # Access the row by position
+                        row = doc_matrix.iloc[inner_count]  # Access the row at index `count`
                     else:
                        # Extract the row
                         temp_matrix = doc_matrix.iloc[0, :]  # Using .iloc for positional indexing
                         # Get the first value of the row
-                        temp_num = doc_matrix.iloc[count,0] # Access the value in the (num_row) row and first column
+                        temp_num = doc_matrix.iloc[inner_count,0] # Access the value in the (num_row) row and first column
                         # Multiply the row by its first value
                         temp_matrix = temp_matrix * temp_num
 
