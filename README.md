@@ -24,8 +24,8 @@ Running From Source Code
 
 1- Clone this repository:
 
-	git clone https://github.com/<your-username>/MatrixProduceRREF.git
-cd MatrixProduceRREF
+	https://github.com/ProHamedM/MatrixProduceRREF.git
+
 2- Install required dependencies:
 
 	pip install pandas numpy openpyxl
