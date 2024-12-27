@@ -1,5 +1,14 @@
 import pandas as pd
 import numpy as np
+import logging
+
+
+# Configure the logger
+logging.basicConfig(
+    filename='matrix_operations.log',  # Log file name
+    level=logging.INFO,                # Logging level
+    format='%(asctime)s - %(message)s' # Log entry format
+)
 
 # Ask client paths
 read_path = input ('Please enter excel File\'s Path?').strip() # Remove extra spaces
