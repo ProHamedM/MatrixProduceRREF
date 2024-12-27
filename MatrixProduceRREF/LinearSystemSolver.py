@@ -1,6 +1,7 @@
 import re
 import logging
 import numpy as np
+import pandas as pd
 import os
 
 # Class for parsing a system of linear equations
@@ -120,3 +121,22 @@ class LinearSystemSolver:
         :return: Tuple (coefficient_matrix, constant_vector)
         """
         return self.coefficient_matrix, self.constant_vector
+
+    # Save the coefficient matrix and constant vector to an Excel file in the log_path directory.
+    def save_to_excel(self, output_directory):
+        try:
+            # Prepare DataFrame for the full augmented matrix (coefficients | constants)
+            augmented_matrix = np.hstack([self.coefficient_matrix, self.constant_vector.reshape(-1, 1)])
+            dataframe = pd.DataFrame(augmented_matrix)
+
+            # Construct the output file path using the log_path
+            output_path = os.path.join(self.log_path, 'LinearSystem.xlsx')
+
+            # Save DataFrame to Excel
+            dataframe.to_excel(output_path, index=False, header=False)
+
+            print(f"Matrix saved to {output_path}")
+            return output_path
+        except Exception as exception:
+            print(f"An error occurred while saving the matrix: {exception}")
+            raise
