@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7f39579-35e9-4265-910c-97e83f1d5e5b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MatrixProduceRREF/InnerMatrixProduction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatrixProduceRREF/LinearSystemSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixProduceRREF/LinearSystemSolver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MatrixProduceRREF/InnerMatrixProduction.py" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixProduceRREF/InnerMatrixProduction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MatrixProduceRREF/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixProduceRREF/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

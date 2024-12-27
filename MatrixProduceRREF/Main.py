@@ -1,4 +1,3 @@
-import numpy as np
 from LinearSystemSolver import LinearSystemSolver  # Import the solver class
 from InnerMatrixProduction import InnerMatrixProduction     # Import the RREFMatrix class
 import os
@@ -60,15 +59,6 @@ class Main:
 
                 print(f"The RREF matrix has been saved to: {rref_output_file}")
 
-                """
-                # Delegate the solving process to the solver
-                try:
-                    solution = np.linalg.solve(coefficient_matrix, constant_vector)
-                    print("\nSolution Vector (x):")
-                    print(solution)
-                except np.linalg.LinAlgError as e:
-                    print(f"Error: Cannot solve the system ({e}).")
-                """
             elif choice == "2":
                 print("Exiting the program. Goodbye!")
                 break
