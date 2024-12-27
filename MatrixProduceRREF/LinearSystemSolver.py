@@ -2,7 +2,7 @@ import re
 import numpy as np
 
 # Class for parsing a system of linear equations
-class LinearSystemParser:
+class LinearSystemSolver:
 
     # Initialize the parser by prompting the user for equations.
     def __init__(self):
@@ -41,8 +41,12 @@ class LinearSystemParser:
             # Extract coefficients and variables
             for term in term_pattern.findall(equation):
                 coefficient, var = term  # Split coefficient and variable (e.g., '2x' -> '2', 'x')
-                # If coefficient is empty, it means 1 (or -1 for negative signs)
-                coefficient = float(coefficient) if coefficient else 1.0
+
+                # Handle cases where the coefficient is missing or is just '+' or '-'
+                if coefficient in ["+", "-"]:
+                    coefficient += "1"  # Convert '+' to '+1' and '-' to '-1'
+                coefficient = float(coefficient) if coefficient else 1.0 # Default to 1.0 if coefficient is empty
+
                 coefficient_dictionary[var] = coefficient  # Store in dictionary with variable as key
                 variable_set.add(var)   # Add variable to the set
 
