@@ -1,11 +1,28 @@
 import re
+import logging
 import numpy as np
+import os
 
 # Class for parsing a system of linear equations
 class LinearSystemSolver:
 
     # Initialize the parser by prompting the user for equations.
-    def __init__(self):
+    def __init__(self, log_path):
+
+        # Initialize the solver with a LogManager instance
+        self.log_path = log_path
+
+        # Configure logging dynamically based on log_path
+        log_file = os.path.join(self.log_path, "linearSystemLog.txt")       # Create the path for the log file
+        logging.basicConfig(
+            filename=log_file,                                              # Log file name
+            level=logging.INFO,                                             # Logging level
+            format='%(asctime)s - %(levelname)s - %(message)s'              # Log entry format
+        )
+        self.logger = logging.getLogger()
+
+        # Logging initialization
+        self.logger.info("LinearSystemSolver initialized.")
 
         print("Enter your linear equations one by one.")
         print("Type 'done' when you finish entering all equations.")
@@ -22,8 +39,13 @@ class LinearSystemSolver:
         self.coefficients = []      # List to store coefficients from equations
         self.constants = []         # List to store constants from equations
 
+        self.logger.info("Equations received from user.")
+
     # Parse the input equations to extract variables, coefficients, and constants.
     def parse_equations(self):
+
+        # Log parsing process
+        self.logger.info("Parsing equations...")
 
         # Set to store variables without duplicates
         variable_set = set()
@@ -66,6 +88,8 @@ class LinearSystemSolver:
         # Build coefficient matrix and constant vector
         self._build_matrices()
 
+        self.logger.info("Equations parsed successfully.")
+
     # Construct the coefficient matrix (A) and constant vector (b) from parsed data.
     def _build_matrices(self):
 
@@ -87,6 +111,8 @@ class LinearSystemSolver:
         # Store matrices as instance attributes
         self.coefficient_matrix = coefficient_matrix
         self.constant_vector = constant_vector
+
+        self.logger.info("Matrices constructed successfully.")
 
     def get_matrices(self):
         """
