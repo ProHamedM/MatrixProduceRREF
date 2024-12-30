@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f7f39579-35e9-4265-910c-97e83f1d5e5b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatrixProduceRREF/InnerMatrixProduction.py" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixProduceRREF/InnerMatrixProduction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatrixProduceRREF/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixProduceRREF/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,21 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.LinearSystemSolver.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.MatrixProduceRREF.executor": "Run",
-    "Python._pydev_execfile.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Projects/AIMaster/WangMendelAS",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.LinearSystemSolver.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MatrixProduceRREF.executor&quot;: &quot;Run&quot;,
+    &quot;Python._pydev_execfile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/AIMaster/WangMendelAS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python.Main">
+}</component>
+  <component name="RunManager" selected="Python.MatrixProduceRREF">
     <configuration name="LinearSystemSolver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MatrixProduceRREF" />
       <option name="ENV_FILES" value="" />
